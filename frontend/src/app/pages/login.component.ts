@@ -12,7 +12,6 @@ import { AuthResponse } from '../core/models';
       <div class="login-card">
         <div class="brand-block">
           <span class="brand-mark">MOZA</span>
-          <span class="brand-tag">Gestão de Contas Bancárias</span>
         </div>
 
         <div class="form-area">
@@ -75,10 +74,6 @@ import { AuthResponse } from '../core/models';
     }
     .brand-block .brand-mark {
       font-size: 2rem;
-    }
-    .brand-tag {
-      font-size: 0.85rem;
-      opacity: 0.9;
     }
     .form-area {
       padding: 24px 28px 28px;
