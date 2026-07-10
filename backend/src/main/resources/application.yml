@@ -1,0 +1,17 @@
+# Configuração da aplicação.
+# Os valores podem ser substituídos por variáveis de ambiente (útil no Docker).
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/bankdb}
+    username: ${DB_USER:bank}
+    password: ${DB_PASSWORD:bank}
+  jpa:
+    # O Flyway é que gere o esquema; o Hibernate só valida se as entidades batem certo.
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+jwt:
+  # Chave usada para assinar os tokens. Em produção viria de uma variável de ambiente.
+  secret: ${JWT_SECRET:troque-esta-chave-por-uma-segura-com-pelo-menos-32-caracteres}
+  expiration-ms: 3600000 # 1 hora

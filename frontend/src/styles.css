@@ -1,0 +1,192 @@
+/* Estilos globais — identidade visual inspirada no Moza Banco (vermelho/branco) */
+
+:root {
+  --red: #e30613;
+  --red-dark: #b8050f;
+  --red-soft: #fdeaeb;
+  --ink: #1f2328;
+  --grey: #6b7280;
+  --line: #e5e7eb;
+  --bg: #f6f7f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 1.35rem;
+  margin: 8px 0 20px;
+}
+
+h2 {
+  font-size: 1.05rem;
+}
+
+/* Formulários */
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 14px 0 6px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfd4da;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--red);
+  outline-offset: 0;
+  border-color: transparent;
+}
+
+button {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+button:hover {
+  background: var(--red-dark);
+}
+
+button:disabled {
+  background: #c2c7cd;
+  cursor: not-allowed;
+}
+
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 11px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  color: var(--grey);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Mensagens */
+.error {
+  background: var(--red-soft);
+  color: var(--red-dark);
+  border: 1px solid #f6b6ba;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+.success {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+/* Etiquetas */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: #eef0f2;
+  color: #374151;
+}
+
+.badge.green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.red {
+  background: var(--red-soft);
+  color: var(--red-dark);
+}
+
+.muted {
+  color: var(--grey);
+  font-size: 0.85rem;
+}
+
+/* Responsividade base */
+@media (max-width: 640px) {
+  .container {
+    padding: 16px 12px;
+  }
+
+  .card {
+    padding: 18px 16px;
+  }
+
+  table {
+    min-width: 560px; /* obriga o scroll horizontal em vez de "estragar" as colunas */
+  }
+}
+
+/* Marca MOZA */
+.brand-mark {
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  font-size: 1.15rem;
+}
