@@ -6,6 +6,7 @@ import com.bank.account.AccountRepository;
 import com.bank.account.AccountService;
 import com.bank.account.AccountType;
 import com.bank.transaction.TransactionRepository;
+import com.bank.transaction.TransactionType;
 import com.bank.transfer.TransferDtos.TransferRequest;
 import com.bank.transfer.TransferService;
 import com.bank.user.Role;
@@ -117,8 +118,14 @@ class TransferServiceTests {
         accountService.deposit(mariaAccount.getId(), new BigDecimal("500.00"), "Depósito ao balcão");
 
         assertThat(balanceOf(mariaAccount)).isEqualByComparingTo("1500.00");
-        var statement = transactionRepository.findByAccountIdOrderByCreatedAtDesc(mariaAccount.getId());
-        assertThat(statement.get(0).getResultingBalance()).isEqualByComparingTo("1500.00");
+
+        // Procura o movimento pelo tipo: dois movimentos criados no mesmo
+        // instante nao garantem ordem por data
+        var deposito = transactionRepository.findByAccountIdOrderByCreatedAtDesc(mariaAccount.getId()).stream()
+                .filter(t -> t.getType() == TransactionType.DEPOSITO)
+                .findFirst()
+                .orElseThrow();
+        assertThat(deposito.getResultingBalance()).isEqualByComparingTo("1500.00");
     }
 
     @Test
